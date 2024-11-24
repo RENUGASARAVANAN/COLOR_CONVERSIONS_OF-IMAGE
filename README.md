@@ -109,18 +109,31 @@ cv2.destroyAllWindows()
 3.Draw a rectangle around a specific region of interest in the image.
 ```
 import cv2
-image = cv2.imread("vijay.webp")
-image = cv2.resize(image, (400, 300))
-start = (150, 100)
-stop = (300, 200)
-color = (255, 255, 100)
-thickness = 10           
-res_img = cv2.rectangle(image, start, stop, color, thickness)
-cv2.imshow('Renuga_212222230118', res_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+import matplotlib.pyplot as plt
+
+# Load the image
+image = cv2.imread('vijay.webp')
+
+# Check if the image is loaded
+if image is None:
+    print("Error: Image not found or failed to load.")
+else:
+    # Convert BGR to RGB
+    img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    # Draw a rectangle on the image
+    rectangle_img = cv2.rectangle(img_rgb, (0, 0), (300, 200), (255, 0, 0), 10)  # Blue rectangle
+
+    # Display the image with the rectangle
+    plt.imshow(rectangle_img)
+    plt.title("Image with Rectangle")
+    plt.axis('off')
+    plt.show()
 ```
-![Screenshot 2024-09-24 181748](https://github.com/user-attachments/assets/362b7a49-de92-4a81-a2ff-d6e665264ecc)
+![Screenshot 2024-11-24 151035](https://github.com/user-attachments/assets/db8505bd-1382-4950-9c77-94835c19bb2b)
+
+
+
 
 
 4.Add the text "OpenCV Drawing" at the top-left corner of the image.
